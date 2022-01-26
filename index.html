@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <div>TIP CALCULATOR</div>
+        <style>
+            body {
+                background-color: darkgrey;
+            }
+            div {
+               /* display: inline-flexbox;*/
+                background-color: rgb(48, 48, 172);
+                font-size: xx-large;
+                text-align: center;
+                font-weight: bold;
+            }
+            form {
+                margin-top: 100;
+                text-align: center;
+                font-size: large;
+            }
+            button {
+                text-align: center;
+                font-size: xx-large;
+                margin-left: 660;
+                background-color: darkolivegreen;
+            }
+            button:hover {
+                background-color: blanchedalmond;
+            }
+            select{
+                font-size:xx-large;
+                padding: 10px ;
+            }
+            span {
+                margin-left: 675;
+                font-size: large;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+         
+
+        </style>
+    </head>
+
+    <body>
+        <form>
+            <label>How much was your bill?</label>
+            <br>
+            <input id="amt" type="text">
+            <br>
+            <br>
+            <label>How was your service</label>
+            <br>
+            <select id = "service" name="eyeColor" aria-multiline="true">
+            <option value="0">0% - poor</option>
+            <option value="0.1">10% - good</option>
+            <option value="0.2">20% - better</option>
+            <option value="0.3">30% - outstanding</option>
+            </select>
+            <br>
+            <br>
+            <label>How many people are sharing bill?</label>
+            <br>
+            <input  id="people" type="text">
+        </form>
+        <br>
+        <br>
+        <button type="button" id = "calculate">CALCULATE</button>
+        <br>
+        <br>
+        <div id="total">
+            <sup>Rs</sup><div id="tip">0.00</div>
+            <small id="each">each</small>
+          </div>
+        </div>
+        <script>
+            function cal(){
+                var bill = document.getElementById("amt").value;
+                var service = document.getElementById("service").value;
+                var people = document.getElementById("people").value;
+               /* if (bill == ""){
+                    console.log("please enter value");
+                    return;
+                }*/
+                var total = (bill * service) / people;
+                total = Math.round(total * 100) / 100;
+                total = total.toFixed(2);
+               // document.getElementById("total").style.display = "block";
+                document.getElementById("tip").innerHTML = total
+            }
+                document.getElementById("calculate").onclick = function() {
+                cal();
+            };
+        </script>
+    </body>
+</html>
